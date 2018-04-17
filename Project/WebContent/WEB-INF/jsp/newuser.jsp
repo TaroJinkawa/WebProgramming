@@ -15,7 +15,7 @@
         <div align="right"　><font color="white"><h5>ユーザ名さん</h5></font></div>
       </div>
       <div class="side">
-        <div align="right"><a href="login.html"><u><font color="red">ログアウト</font></u></a></div>
+        <div align="right"><a href="LoginServlet"><u><font color="red">ログアウト</font></u></a></div>
       </div>
     </div>
   </header>
@@ -29,58 +29,60 @@
     </center></h2>
   </div>
 <!--title---------------------->
+<form class="form-signin" action="LoginServlet" method="post">
 <!--idbox---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">ログインID</label>
       <input type="id" class="form-control col-sm-7" placeholder="ログインID" required="" autofocus="" >
-    </form>
+    </div>
   </div>
 <!--idbox---------------------->
 <!--passbox ---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">パスワード</label>
       <input type="password" class="form-control col-sm-7" placeholder="パスワード" required="" autofocus="" >
-    </form>
+    </div>
   </div>
 <!--passbox ---------------------->
 <!--pass2box---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">パスワード(確認)</label>
       <input type="password" class="form-control col-sm-7" placeholder="パスワード(確認)" required="" autofocus="" >
-    </form>
+    </div>
   </div>
 <!--pass2box ---------------------->
 <!--namebox ---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">ユーザ名</label>
       <input type="id" class="form-control col-sm-7" placeholder="ユーザ名" required="" autofocus="" >
-    </form>
+    </div>
   </div>
 <!--namebox ---------------------->
 <!--birthdaybox ---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">生年月日</label>
       <input type="date" class="form-control col-sm-7"required="" autofocus="" >
-    </form>
+    </div>
   </div>
 <!--birthdaybox ---------------------->
 <br>
 <!--Registrationbuttan---------------------->
   <div class="newuser-area">
-    <form action="list.html">
+    <div action="NewUserServlet">
       <p><div align="right"><center>
         <button type="submit" class="btn btn-primary  form-control col-sm-4" value="送信する">登録</button>
       </center></div></p>
-    </form>
+    </div>
   </div>
 <!--Registrationbuttan---------------------->
+</form>
 <!--return---------------------->
-  <div style="margin-left:20px;" ><a href="list.html"><u><font color="red">戻る</font></u></a></div>
+  <div style="margin-left:20px;" ><a href="ListServlet"><u><font color="red">戻る</font></u></a></div>
 <!--return---------------------->
 
 </body>

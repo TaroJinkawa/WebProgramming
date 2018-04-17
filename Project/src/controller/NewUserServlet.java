@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,10 +36,7 @@ public class NewUserServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String loginId = request.getParameter("loginId");
-		String password = request.getParameter("password");
-		String name = request.getParameter("name");
-		Date birthDate = request.getParameter(birthDate);
+
 	}
 
 }
