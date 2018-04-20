@@ -61,7 +61,6 @@ public class LoginServlet extends HttpServlet {
 			// リクエストスコープにエラーメッセージをセット
 			request.setAttribute("errMsg", "ログインに失敗しました。");
 
-			// ログインjspにフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
 			dispatcher.forward(request, response);
 			return;

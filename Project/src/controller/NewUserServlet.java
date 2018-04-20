@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDao;
+
 /**
  * Servlet implementation class NewUserServlet
  */
@@ -30,6 +32,7 @@ public class NewUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/newuser.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 	/**
@@ -37,6 +40,22 @@ public class NewUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+
+		String loginId = request.getParameter("loginId");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String birthDate = request.getParameter("birthDate");
+
+
+		UserDao newuser = new UserDao();
+		newuser.insertDate(loginId, password, name, birthDate);
+		
+
+		response.sendRedirect("ListServlet");
+
+
 	}
+
 
 }

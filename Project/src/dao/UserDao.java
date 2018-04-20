@@ -115,5 +115,89 @@ public class UserDao {
         }
         return userList;
     }
+
+    public void insertDate (String loginId, String password, String name, String birthDate) {
+        Connection conn = null;
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
+            String insert = "INSERT INTO user(login_id,password,name,birth_date,create_date,update_date) VALUES(?,?,?,?,now(),now())";
+
+
+            PreparedStatement pStmt = conn.prepareStatement(insert);
+            pStmt.setString(1, loginId);
+            pStmt.setString(2, password);
+            pStmt.setString(3, name);
+            pStmt.setString(4, birthDate);
+
+
+            pStmt.executeUpdate();
+            conn.close();
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+
+        	 if (conn != null) {
+                 try {
+                     conn.close();
+                 } catch (SQLException e) {
+                 }
+                 conn = null;
+             }
+         }
+     }
+
+    public List<User> UserDate (String id) {
+        Connection conn = null;
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
+            String Usersdate = "SELECT * FROM user WHERE id=?";
+
+
+            PreparedStatement pStmt = conn.prepareStatement(Usersdate);
+            pStmt.setString(1, id);
+
+
+
+
+            pStmt.executeUpdate();
+            ResultSet rs = pStmt.executeQuery(Usersdate);
+
+            while (rs.next()) {
+                int iid = rs.getInt("id");
+                String loginId = rs.getString("login_id");
+                String name = rs.getString("name");
+                Date birthDate = rs.getDate("birth_date");
+                String password = rs.getString("password");
+                String createDate = rs.getString("create_date");
+                String updateDate = rs.getString("update_date");
+                User userdate = new User(iid, loginId, name, birthDate, password, createDate, updateDate);
+
+
+            }
+            conn.close();
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+
+        	 if (conn != null) {
+                 try {
+                     conn.close();
+                 } catch (SQLException e) {
+                 }
+                 conn = null;
+             }
+         }
+		return null;
+     }
 }
 

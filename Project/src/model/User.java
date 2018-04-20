@@ -3,7 +3,6 @@ package model;
 import java.util.Date;
 
 
-
 public class User {
 	private int id;
 	private String loginId;

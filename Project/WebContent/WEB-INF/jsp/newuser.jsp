@@ -29,12 +29,12 @@
     </center></h2>
   </div>
 <!--title---------------------->
-<form class="form-signin" action="LoginServlet" method="post">
+<form class="form-signin" action="NewUserServlet" method="post">
 <!--idbox---------------------->
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">ログインID</label>
-      <input type="id" class="form-control col-sm-7" placeholder="ログインID" required="" autofocus="" >
+      <input type="id" name="loginId" class="form-control col-sm-7" placeholder="ログインID" required="" autofocus="" >
     </div>
   </div>
 <!--idbox---------------------->
@@ -42,7 +42,7 @@
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">パスワード</label>
-      <input type="password" class="form-control col-sm-7" placeholder="パスワード" required="" autofocus="" >
+      <input type="password" name="password" class="form-control col-sm-7" placeholder="パスワード" required="" autofocus="" >
     </div>
   </div>
 <!--passbox ---------------------->
@@ -58,7 +58,7 @@
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">ユーザ名</label>
-      <input type="id" class="form-control col-sm-7" placeholder="ユーザ名" required="" autofocus="" >
+      <input type="id" name="name" class="form-control col-sm-7" placeholder="ユーザ名" required="" autofocus="" >
     </div>
   </div>
 <!--namebox ---------------------->
@@ -66,7 +66,7 @@
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">生年月日</label>
-      <input type="date" class="form-control col-sm-7"required="" autofocus="" >
+      <input type="date" name=birthDate class="form-control col-sm-7"required="" autofocus="" >
     </div>
   </div>
 <!--birthdaybox ---------------------->
