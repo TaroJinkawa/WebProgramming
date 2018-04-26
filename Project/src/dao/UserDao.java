@@ -151,22 +151,19 @@ public class UserDao {
          }
      }
 
-    public List<User> UserDate (String id) {
+    public User UserDate (String id) {
         Connection conn = null;
         try {
             // データベースへ接続
             conn = DBManager.getConnection();
-            String Usersdate = "SELECT * FROM user WHERE id=?";
+            String Usersdata = "SELECT * FROM user WHERE id=?";
 
 
-            PreparedStatement pStmt = conn.prepareStatement(Usersdate);
+            PreparedStatement pStmt = conn.prepareStatement(Usersdata);
             pStmt.setString(1, id);
 
 
-
-
-            pStmt.executeUpdate();
-            ResultSet rs = pStmt.executeQuery(Usersdate);
+            ResultSet rs = pStmt.executeQuery();
 
             while (rs.next()) {
                 int iid = rs.getInt("id");
@@ -176,7 +173,8 @@ public class UserDao {
                 String password = rs.getString("password");
                 String createDate = rs.getString("create_date");
                 String updateDate = rs.getString("update_date");
-                User userdate = new User(iid, loginId, name, birthDate, password, createDate, updateDate);
+                User userdata = new User(iid, loginId, name, birthDate, password, createDate, updateDate);
+                return userdata;
 
 
             }
@@ -199,5 +197,47 @@ public class UserDao {
          }
 		return null;
      }
+
+
+    public void updateDate (String password, String name, String birthDate, String id) {
+        Connection conn = null;
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
+            String update = "UPDATE user SET password=?,name=?,birth_date=? WHERE id=?";
+
+
+
+            PreparedStatement pStmt = conn.prepareStatement(update);
+            pStmt.setString(1, password);
+            pStmt.setString(2, name);
+            pStmt.setString(3, birthDate);
+            pStmt.setString(4, id);
+
+            pStmt.executeUpdate();
+
+
+
+
+            conn.close();
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+
+        	 if (conn != null) {
+                 try {
+                     conn.close();
+                 } catch (SQLException e) {
+                 }
+                 conn = null;
+             }
+         }
+     }
+
 }
+
 

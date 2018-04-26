@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +30,11 @@
     </center></h2>
   </div>
 <!--title---------------------->
+<c:if test="${errMsg != null}" >
+	    <div class="alert alert-danger" role="alert">
+		  ${errMsg}
+		</div>
+	</c:if>
 <form class="form-signin" action="NewUserServlet" method="post">
 <!--idbox---------------------->
   <div class="newuser-area">
@@ -50,10 +56,11 @@
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">パスワード(確認)</label>
-      <input type="password" class="form-control col-sm-7" placeholder="パスワード(確認)" required="" autofocus="" >
+      <input type="password" name="password2" class="form-control col-sm-7" placeholder="パスワード(確認)" required="" autofocus="" >
     </div>
   </div>
 <!--pass2box ---------------------->
+
 <!--namebox ---------------------->
   <div class="newuser-area">
     <div class="form-inline">

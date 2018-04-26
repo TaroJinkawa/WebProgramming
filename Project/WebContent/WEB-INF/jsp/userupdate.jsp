@@ -31,56 +31,60 @@
 <!--title---------------------->
 <!--idbox---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <form class="form-inline" >
       <label class="col-sm-5">ログインID</label>
-      <label class="col-sm-7">id00◯◯</label>
-    </form>
-  </div>
+      <label class="col-sm-7">${userData.id}</label>
+    </div>
+  </form>
 <!--idbox---------------------->
+<form class="form-update" action="UserUpdateServlet" method="post">
+<input type="hidden" name="id" value="${userData.id}">
 <!--passbox---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">パスワード</label>
-      <input type="password" class="form-control col-sm-7" placeholder="パスワード" required="" autofocus="" >
-    </form>
+      <input type="password" name=password class="form-control col-sm-7" placeholder="パスワード" required="" autofocus="" >
+    </div>
   </div>
 <!--passbox---------------------->
 <!--pass2box---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">パスワード(確認)</label>
       <input type="password" class="form-control col-sm-7" placeholder="パスワード(確認)" required="" autofocus="" >
-    </form>
+    </div>
   </div>
 <!--pass2box---------------------->
 <!--namebox---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">ユーザ名</label>
-      <input type="text" class="form-control col-sm-7" value="◯◯◯◯"  required="" autofocus="" >
-    </form>
+      <input type="text" name=name class="form-control col-sm-7" value="${userData.name}"  required="" autofocus="" >
+    </div>
   </div>
 <!--namebox---------------------->
 <!--birthdaybox---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-5">生年月日</label>
-      <input type="date" class="form-control col-sm-7"  required="" autofocus="" >
-    </form>
+      <input type="date" name=birthDate class="form-control col-sm-7"  required="" autofocus="" >
+    </div>
   </div>
 <!--birthdaybox---------------------->
 <br>
 <!--updatebuttan---------------------->
 <div class="newuser-area">
-<form action="list.html">
+
   <p><div align="right"><center>
     <button type="submit" class="btn btn-primary  form-control col-sm-4" value="送信する">更新</button>
   </center></div></p>
-</form>
+
 </div>
 <!--updatebuttan---------------------->
+</form>
+
 <!--return---------------------->
-  <div style="margin-left:20px;" ><a href="list.html"><u><font color="red">戻る</font></u></a></div>
+  <div style="margin-left:20px;" ><a href="ListServlet"><u><font color="red">戻る</font></u></a></div>
 <!--return---------------------->
 
 </body>

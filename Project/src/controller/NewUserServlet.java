@@ -50,7 +50,7 @@ public class NewUserServlet extends HttpServlet {
 
 		UserDao newuser = new UserDao();
 		newuser.insertDate(loginId, password, name, birthDate);
-		
+
 
 		response.sendRedirect("ListServlet");
 

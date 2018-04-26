@@ -31,9 +31,9 @@
 <!--title---------------------->
 <!--idbox---------------------->
   <div class="newuser-area">
-    <form class="form-inline">
+    <form class="form-inline" name=id >
       <label class="col-sm-5">ログインID</label>
-      <label class="col-sm-7"><td>${userdate.id}</td></label>
+      <label class="col-sm-7" >${userData.id}</label>
     </form>
   </div>
 <!--idbox---------------------->
@@ -41,7 +41,7 @@
   <div class="newuser-area">
     <form class="form-inline">
       <label class="col-sm-5">ユーザ名</label>
-      <label class="col-sm-7">${userdate.name}</label>
+      <label class="col-sm-7">${userData.name}</label>
     </form>
   </div>
 <!--namebox---------------------->
@@ -49,7 +49,7 @@
   <div class="newuser-area">
     <form class="form-inline">
       <label class="col-sm-5">生年月日</label>
-      <label class="col-sm-7">${userdate.birth_date}</label>
+      <label class="col-sm-7">${userData.birthDate}</label>
     </form>
   </div>
 <!--birthdaybox---------------------->
@@ -57,7 +57,7 @@
   <div class="newuser-area">
     <form class="form-inline">
       <label class="col-sm-5">登録日時</label>
-      <label class="col-sm-7">${userdate.create_date}</label>
+      <label class="col-sm-7">${userData.createDate}</label>
     </form>
   </div>
 <!--Registrationbox---------------------->
@@ -65,7 +65,7 @@
   <div class="newuser-area">
     <form class="form-inline">
       <label class="col-sm-5">更新日時</label>
-      <label class="col-sm-7">${userdate.update_date}</label>
+      <label class="col-sm-7">${userData.updateDate}</label>
     </form>
   </div>
 <!--updatebox---------------------->

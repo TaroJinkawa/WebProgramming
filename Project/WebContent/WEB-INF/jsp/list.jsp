@@ -97,8 +97,8 @@
             <td>${user.birthDate}</td>
             <td><center>
               <a href="UserDetailServlet?id=${user.id}"><button type="button" class="btn btn-primary btn-sm">詳細</button></a>
-              <a href="UserDetailServlet?id=${user.id}"><button type="button" class="btn btn-success btn-sm">更新</button></a>
-              <a href="UserDetailServlet?id=${user.id}"><button type="button" class="btn btn-danger btn-sm">削除</button></a>
+              <a href="UserUpdateServlet?id=${user.id}"><button type="button" class="btn btn-success btn-sm">更新</button></a>
+              <a href="UserDeleteServlet?id=${user.id}"><button type="button" class="btn btn-danger btn-sm">削除</button></a>
           </center></td>
           </tr>
           </c:forEach>

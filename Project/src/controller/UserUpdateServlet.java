@@ -13,16 +13,16 @@ import dao.UserDao;
 import model.User;
 
 /**
- * Servlet implementation class UserDetailServret
+ * Servlet implementation class UserUpdateServlet
  */
-@WebServlet("/UserDetailServlet")
-public class UserDetailServlet extends HttpServlet {
+@WebServlet("/UserUpdateServlet")
+public class UserUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserDetailServlet() {
+    public UserUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +32,6 @@ public class UserDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
 		String id = request.getParameter("id");
 
 		UserDao userdata = new UserDao();
@@ -41,19 +40,33 @@ public class UserDetailServlet extends HttpServlet {
 
 		request.setAttribute("userData", userData);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userdetail.jsp");
+
+
+
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
 		dispatcher.forward(request, response);
-
-
-
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String birthDate = request.getParameter("birthDate");
+		String id = request.getParameter("id");
+
+
+		UserDao userupdate = new UserDao();
+		userupdate.updateDate(password, name, birthDate, id);
+
+
+		response.sendRedirect("ListServlet");
+
+
 	}
 
 }
