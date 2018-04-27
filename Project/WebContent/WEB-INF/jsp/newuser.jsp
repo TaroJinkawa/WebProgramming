@@ -30,11 +30,6 @@
     </center></h2>
   </div>
 <!--title---------------------->
-<c:if test="${errMsg != null}" >
-	    <div class="alert alert-danger" role="alert">
-		  ${errMsg}
-		</div>
-	</c:if>
 <form class="form-signin" action="NewUserServlet" method="post">
 <!--idbox---------------------->
   <div class="newuser-area">

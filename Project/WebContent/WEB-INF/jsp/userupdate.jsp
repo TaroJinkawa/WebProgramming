@@ -51,7 +51,7 @@
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">パスワード(確認)</label>
-      <input type="password" class="form-control col-sm-7" placeholder="パスワード(確認)" required="" autofocus="" >
+      <input type="password" name=password2 class="form-control col-sm-7" placeholder="パスワード(確認)" required="" autofocus="" >
     </div>
   </div>
 <!--pass2box---------------------->

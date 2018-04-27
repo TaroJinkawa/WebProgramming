@@ -238,6 +238,77 @@ public class UserDao {
          }
      }
 
+    public void UserDelete (String id) {
+        Connection conn = null;
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
+            String delete = "DELETE FROM user WHERE id=?";
+
+
+
+            PreparedStatement pStmt = conn.prepareStatement(delete);
+
+            pStmt.setString(1, id);
+
+            pStmt.executeUpdate();
+
+
+
+
+            conn.close();
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+
+        	 if (conn != null) {
+                 try {
+                     conn.close();
+                 } catch (SQLException e) {
+                 }
+                 conn = null;
+             }
+         }
+     }
+    public boolean UserNameDate(String loginId) {
+    	Connection conn = null;
+        try {
+            conn = DBManager.getConnection();
+            String namedata = "SELECT * FROM user WHERE login_Id = ?";
+            PreparedStatement pStmt = conn.prepareStatement(namedata);
+
+            pStmt.setString(1,loginId);
+            ResultSet rs = pStmt.executeQuery();
+
+            if (!rs.next()) {
+                return false;
+            }
+
+            conn.close();
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+
+        	 if (conn != null) {
+                 try {
+                     conn.close();
+                 } catch (SQLException e) {
+                 }
+                 conn = null;
+             }
+         }
+		return true;
+
+    }
 }
 
 

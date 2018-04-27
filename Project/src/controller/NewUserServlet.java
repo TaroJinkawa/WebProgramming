@@ -44,15 +44,36 @@ public class NewUserServlet extends HttpServlet {
 
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
+		String password2 = request.getParameter("password2");
 		String name = request.getParameter("name");
 		String birthDate = request.getParameter("birthDate");
 
-
 		UserDao newuser = new UserDao();
+
+		boolean isCheck = newuser.UserNameDate(loginId);
+
+		if(isCheck) {
+			request.setAttribute("errMsg", "このIDはすでに使われています");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+
+
+		if(!password.equals(password2)) {
+			request.setAttribute("errMsg", "パスワードが一致しません");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+
 		newuser.insertDate(loginId, password, name, birthDate);
-
-
 		response.sendRedirect("ListServlet");
+
+
+
 
 
 	}

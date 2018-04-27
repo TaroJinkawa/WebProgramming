@@ -13,16 +13,16 @@ import dao.UserDao;
 import model.User;
 
 /**
- * Servlet implementation class UserUpdateServlet
+ * Servlet implementation class UserDeleteServlet
  */
-@WebServlet("/UserUpdateServlet")
-public class UserUpdateServlet extends HttpServlet {
+@WebServlet("/UserDeleteServlet")
+public class UserDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserUpdateServlet() {
+    public UserDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,11 +40,7 @@ public class UserUpdateServlet extends HttpServlet {
 
 		request.setAttribute("userData", userData);
 
-
-
-
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userdelete.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -53,31 +49,14 @@ public class UserUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-		String password = request.getParameter("password");
-		String password2 = request.getParameter("password2");
-		String name = request.getParameter("name");
-		String birthDate = request.getParameter("birthDate");
 		String id = request.getParameter("id");
 
-		if(password.equals(password2)) {
-
-			UserDao userupdate = new UserDao();
-			userupdate.updateDate(password, name, birthDate, id);
+		UserDao delete = new UserDao();
+		delete.UserDelete(id);
 
 
-			response.sendRedirect("ListServlet");
+		response.sendRedirect("ListServlet");
 
-
-		}else {
-
-		request.setAttribute("errMsg", "パスワードが一致しません");
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
-		dispatcher.forward(request, response);
-		return;
-
-		}
 
 	}
 

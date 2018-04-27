@@ -14,7 +14,10 @@
 <br>
   <p>${errMsg}</p>
 
-  <a href="LoginServlet"><button type="button" class="btn btn-primary btn-sm">戻る</button></a>
+<FORM>
+<INPUT type="button" class="btn btn-primary btn-sm" value="戻る" onClick="history.go(-1)">
+</FORM>
+
   </center>
 </body>
 

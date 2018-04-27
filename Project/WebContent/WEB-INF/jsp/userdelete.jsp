@@ -28,18 +28,22 @@
     </center></h2>
   </div>
 <!--title---------------------->
+
 <!--massage---------------------->
-  <div>
-    <p style="margin-left:30px;">ログインID:id00○○<br>を本当に削除してよろしいでしょうか。</p>
-  </div>
+  <center><div>
+    <p style="margin-left:30px;">ID:${userData.id}<br>を本当に削除してよろしいでしょうか。</p>
+  </div></center>
 <!--massage--------------------->
   <br>
 <!--button--------------------->
   <center>
+  <form class="delete" action="UserDeleteServlet" method="post">
+  <input type="hidden" name="id" value="${userData.id}">
     <div class="delete-area">
-      <a href="list.html"><button type="button" class="btn btn-primary col-sm-3">キャンセル</button></a>
-      <a href="list.html"><button type="button" class="btn btn-primary col-sm-3">OK</button></a>
+      <a href="ListServlet"><button type="button" class="btn btn-primary col-sm-3" >キャンセル</button></a>
+      <button type="submit" class="btn btn-primary col-sm-3" value="送信する">OK</button>
     </div>
+  </form>
   </center>
 <!--button--------------------->
 </body>
