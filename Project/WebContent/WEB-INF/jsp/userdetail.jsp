@@ -12,7 +12,7 @@
   <header>
     <div class="wrapper">
       <div class="main">
-        <div align="right"　><font color="white"><h5>ユーザ名さん</h5></font></div>
+        <div align="right"　><font color="white"><h5>${userInfo.name} さん</h5></font></div>
       </div>
       <div class="side">
         <div align="right"><a href="LoginServlet"><u><font color="red">ログアウト</font></u></a></div>
@@ -33,7 +33,7 @@
   <div class="newuser-area">
     <form class="form-inline" name=id >
       <label class="col-sm-5">ログインID</label>
-      <label class="col-sm-7" >${userData.id}</label>
+      <label class="col-sm-7" >${userData.loginId}</label>
     </form>
   </div>
 <!--idbox---------------------->

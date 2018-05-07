@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
   <header>
     <div class="wrapper">
       <div class="main">
-        <div align="right"　><font color="white"><h5>ユーザ名さん</h5></font></div>
+        <div align="right"　><font color="white"><h5>${userInfo.name} さん</h5></font></div>
       </div>
       <div class="side">
         <div align="right"><a href="login.html"><u><font color="red">ログアウト</font></u></a></div>
@@ -29,11 +30,18 @@
     </center></h2>
   </div>
 <!--title---------------------->
+<center>
+<c:if test="${errMsg != null}" >
+	    <div class="alert alert-danger" role="alert">
+		  ${errMsg}
+		</div>
+	</c:if>
+</center>
 <!--idbox---------------------->
   <div class="newuser-area">
     <form class="form-inline" >
       <label class="col-sm-5">ログインID</label>
-      <label class="col-sm-7">${userData.id}</label>
+      <label class="col-sm-7">${userData.loginId}</label>
     </div>
   </form>
 <!--idbox---------------------->
@@ -43,7 +51,7 @@
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">パスワード</label>
-      <input type="password" name=password class="form-control col-sm-7" placeholder="パスワード" required="" autofocus="" >
+      <input type="password" name=password class="form-control col-sm-7" placeholder="パスワード" autofocus="" >
     </div>
   </div>
 <!--passbox---------------------->
@@ -51,7 +59,7 @@
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">パスワード(確認)</label>
-      <input type="password" name=password2 class="form-control col-sm-7" placeholder="パスワード(確認)" required="" autofocus="" >
+      <input type="password" name=password2 class="form-control col-sm-7" placeholder="パスワード(確認)" autofocus="" >
     </div>
   </div>
 <!--pass2box---------------------->
@@ -67,7 +75,7 @@
   <div class="newuser-area">
     <div class="form-inline">
       <label class="col-sm-5">生年月日</label>
-      <input type="date" name=birthDate class="form-control col-sm-7"  required="" autofocus="" >
+      <input type="date" name=birthDate class="form-control col-sm-7" value="${userData.birthDate}" required="" autofocus="" >
     </div>
   </div>
 <!--birthdaybox---------------------->

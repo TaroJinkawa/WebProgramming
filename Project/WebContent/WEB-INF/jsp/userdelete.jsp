@@ -31,7 +31,7 @@
 
 <!--massage---------------------->
   <center><div>
-    <p style="margin-left:30px;">ID:${userData.id}<br>を本当に削除してよろしいでしょうか。</p>
+    <p style="margin-left:30px;">ログインID:${userData.loginId}<br>を本当に削除してよろしいでしょうか。</p>
   </div></center>
 <!--massage--------------------->
   <br>

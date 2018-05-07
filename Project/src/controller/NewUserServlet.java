@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 
@@ -30,6 +31,12 @@ public class NewUserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		if(null == session.getAttribute("userInfo")) {
+			response.sendRedirect("LoginServlet");
+			return;
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/newuser.jsp");
 		dispatcher.forward(request, response);
 
@@ -55,7 +62,7 @@ public class NewUserServlet extends HttpServlet {
 		if(isCheck) {
 			request.setAttribute("errMsg", "このIDはすでに使われています");
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/newuser.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
@@ -64,7 +71,7 @@ public class NewUserServlet extends HttpServlet {
 		if(!password.equals(password2)) {
 			request.setAttribute("errMsg", "パスワードが一致しません");
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/newuser.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}

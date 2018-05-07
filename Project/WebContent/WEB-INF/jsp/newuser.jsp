@@ -13,7 +13,7 @@
   <header>
     <div class="wrapper">
       <div class="main">
-        <div align="right"　><font color="white"><h5>ユーザ名さん</h5></font></div>
+        <div align="right"　><font color="white"><h5>${userInfo.name} さん</h5></font></div>
       </div>
       <div class="side">
         <div align="right"><a href="LoginServlet"><u><font color="red">ログアウト</font></u></a></div>
@@ -30,6 +30,13 @@
     </center></h2>
   </div>
 <!--title---------------------->
+<center>
+	<c:if test="${errMsg != null}" >
+	    <div class="alert alert-danger" role="alert">
+		  ${errMsg}
+		</div>
+	</c:if>
+</center>
 <form class="form-signin" action="NewUserServlet" method="post">
 <!--idbox---------------------->
   <div class="newuser-area">

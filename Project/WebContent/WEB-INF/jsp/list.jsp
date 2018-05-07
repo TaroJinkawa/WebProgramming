@@ -79,6 +79,8 @@
 <Hr Width="95%" >
 <!--line ---------------------->
 <!--searchbox---------------------->
+<c:if test="${userInfo.name == '管理者'}" var="flg" />
+<c:if test="${flg}" >
 <div class="list-area">
   <table class="table table-striped table-bordered table-hover　table-condensed">
       <thead>
@@ -96,9 +98,12 @@
             <td>${user.name}</td>
             <td>${user.birthDate}</td>
             <td><center>
+
+
               <a href="UserDetailServlet?id=${user.id}"><button type="button" class="btn btn-primary btn-sm">詳細</button></a>
               <a href="UserUpdateServlet?id=${user.id}"><button type="button" class="btn btn-success btn-sm">更新</button></a>
               <a href="UserDeleteServlet?id=${user.id}"><button type="button" class="btn btn-danger btn-sm">削除</button></a>
+
           </center></td>
           </tr>
           </c:forEach>
@@ -106,6 +111,43 @@
     </tbody>
 </table>
 </div>
+</c:if>
+<c:if test="${!flg}" >
+<div class="list-area">
+  <table class="table table-striped table-bordered table-hover　table-condensed">
+      <thead>
+          <tr>
+              <th Width="25%"><center>ログインID</center></th>
+              <th Width="25%"><center>ユーザー名</center></th>
+              <th Width="25%"><center>生年月日</center></th>
+              <th Width="25%"></th>
+          </tr>
+      </thead>
+      <tbody>
+       <c:forEach var="user" items="${userList}" >
+          <tr >
+            <td>${user.loginId}</td>
+            <td>${user.name}</td>
+            <td>${user.birthDate}</td>
+            <td><center>
+
+            <c:if test="${user.name == userInfo.name}" var="f" />
+			<c:if test="${f}" >
+              <a href="UserDetailServlet?id=${user.id}"><button type="button" class="btn btn-primary btn-sm">詳細</button></a>
+              <a href="UserUpdateServlet?id=${user.id}"><button type="button" class="btn btn-success btn-sm">更新</button></a>
+             </c:if>
+             <c:if test="${!f}" >
+              <a href="UserDetailServlet?id=${user.id}"><button type="button" class="btn btn-primary btn-sm">詳細</button></a>
+             </c:if>
+
+          </center></td>
+          </tr>
+          </c:forEach>
+
+    </tbody>
+</table>
+</div>
+</c:if>
 <!--searchbox---------------------->
 </body>
 

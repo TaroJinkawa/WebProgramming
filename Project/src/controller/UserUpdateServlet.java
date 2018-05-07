@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.User;
@@ -31,6 +32,12 @@ public class UserUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		if(null == session.getAttribute("userInfo")) {
+			response.sendRedirect("LoginServlet");
+			return;
+		}
 
 		String id = request.getParameter("id");
 
@@ -60,7 +67,19 @@ public class UserUpdateServlet extends HttpServlet {
 		String birthDate = request.getParameter("birthDate");
 		String id = request.getParameter("id");
 
+
 		if(password.equals(password2)) {
+
+
+			if(password.equals("")) {
+				UserDao userupdatenopass = new UserDao();
+				userupdatenopass.updateDateNoPass(name, birthDate, id);
+
+				response.sendRedirect("ListServlet");
+				return;
+			}
+
+
 
 			UserDao userupdate = new UserDao();
 			userupdate.updateDate(password, name, birthDate, id);
@@ -69,13 +88,23 @@ public class UserUpdateServlet extends HttpServlet {
 			response.sendRedirect("ListServlet");
 
 
+
 		}else {
 
-		request.setAttribute("errMsg", "パスワードが一致しません");
+			request.setAttribute("errMsg", "パスワードが一致しません");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
-		dispatcher.forward(request, response);
-		return;
+
+			UserDao userdata = new UserDao();
+
+			User userData = userdata.UserDate(id);
+
+			request.setAttribute("userData", userData);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
+			dispatcher.forward(request, response);
+
+
+			return;
 
 		}
 

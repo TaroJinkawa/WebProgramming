@@ -35,6 +35,11 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// TODO 未実装：ログインセッションがある場合、ユーザ一覧画面にリダイレクトさせる
+		HttpSession session = request.getSession();
+		if(null != session.getAttribute("userInfo")) {
+			response.sendRedirect("ListServlet");
+			return;
+		}
 
 		// フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
@@ -61,7 +66,7 @@ public class LoginServlet extends HttpServlet {
 			// リクエストスコープにエラーメッセージをセット
 			request.setAttribute("errMsg", "ログインに失敗しました。");
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
