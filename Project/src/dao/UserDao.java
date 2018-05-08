@@ -121,7 +121,7 @@ public class UserDao {
         return userList;
     }
 
-    public List<User> findSearch(String loginId, String name, Date birthDate1, Date birthDate2 ) {
+    public List<User> findSearch(String loginId, String name, String birthDate1, String birthDate2 ) {
         Connection conn = null;
         List<User> userList = new ArrayList<User>();
 
@@ -137,11 +137,11 @@ public class UserDao {
             }
 
             if(!name.equals("")) {
-        		sql += " and name LIKE '" + name + "'";
+        		sql += " and name LIKE '%" + name + "%'";
             }
 
             if(!birthDate1.equals("")) {
-        		sql += " and birth_date <= '" + birthDate1 + "'";
+        		sql += " and birth_date >= '" + birthDate1 + "'";
             }
             if(!birthDate2.equals("")) {
         		sql += " and birth_date <= '" + birthDate2 + "'";
@@ -435,6 +435,9 @@ public void updateDateNoPass (String name, String birthDate, String id) {
 		//標準出力
 		return result;
 	}
+
+
 }
+
 
 

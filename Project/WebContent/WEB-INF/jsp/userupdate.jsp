@@ -46,6 +46,7 @@
   </form>
 <!--idbox---------------------->
 <form class="form-update" action="UserUpdateServlet" method="post">
+<input type="hidden" name="loginId" value="${userData.loginId}">
 <input type="hidden" name="id" value="${userData.id}">
 <!--passbox---------------------->
   <div class="newuser-area">

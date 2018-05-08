@@ -60,7 +60,7 @@ public class UserUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
 		String password2 = request.getParameter("password2");
 		String name = request.getParameter("name");
@@ -75,6 +75,9 @@ public class UserUpdateServlet extends HttpServlet {
 				UserDao userupdatenopass = new UserDao();
 				userupdatenopass.updateDateNoPass(name, birthDate, id);
 
+
+
+
 				response.sendRedirect("ListServlet");
 				return;
 			}
@@ -83,6 +86,8 @@ public class UserUpdateServlet extends HttpServlet {
 
 			UserDao userupdate = new UserDao();
 			userupdate.updateDate(password, name, birthDate, id);
+
+
 
 
 			response.sendRedirect("ListServlet");

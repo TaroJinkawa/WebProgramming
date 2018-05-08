@@ -40,41 +40,41 @@
   </div>
 </div>
 <!--newusew---------------------->
+<form class="converter" action="ListServlet" method="post">
 <!--idbox---------------------->
   <div class="list-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-3">ログインID</label>
-      <input type="id" class="form-control col-sm-9" placeholder="ログインID" required="" autofocus="" >
-    </form>
+      <input type="id" class="form-control col-sm-9" name="loginId" placeholder="ログインID" autofocus="" >
+    </div>
   </div>
 <!--idbox---------------------->
 <!--userbox---------------------->
   <div class="list-area">
-    <form class="form-inline">
+    <div class="form-inline">
       <label class="col-sm-3">ユーザー名</label>
-      <input type="id" class="form-control col-sm-9" placeholder="ユーザー名" required="" autofocus="" >
-    </form>
+      <input type="id" class="form-control col-sm-9" name="name" placeholder="ユーザー名" autofocus="" >
+    </div>
   </div>
 <!--userbox---------------------->
 <!--yaerbox---------------------->
 <div class="list-area">
-  <form class="form-inline">
+  <div class="form-inline">
     <label class="col-sm-3">生年月日</label>
-    <input type="date" class="form-control col-sm-4" required="" autofocus="" >
+    <input type="date" class="form-control col-sm-4" name="birthDate1" autofocus="" >
     <p class="col-sm-1"> 〜 </p>
-    <input type="date" class="form-control col-sm-4" required="" autofocus="" >
-  </form>
+    <input type="date" class="form-control col-sm-4" name="birthDate2" autofocus="" >
+  </div>
 </div>
 <!--yaerbox---------------------->
 <!--searchbuttan---------------------->
 <div class="list-area">
-<form action="list.html">
   <p><div align="right">
     <button type="submit" class="btn btn-primary  form-control col-sm-4" value="送信する">検索</button>
   </div>
-</form>
 </div>
 <!--searchbuttan---------------------->
+</form>
 <!--line ---------------------->
 <Hr Width="95%" >
 <!--line ---------------------->

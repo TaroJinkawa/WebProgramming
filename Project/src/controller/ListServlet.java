@@ -59,6 +59,23 @@ public class ListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO  未実装：検索処理全般
+		String loginId = request.getParameter("loginId");
+		String name = request.getParameter("name");
+		String birthDate1 = request.getParameter("birthDate1");
+		String birthDate2 = request.getParameter("birthDate2");
+
+		UserDao userDao = new UserDao();
+		List<User> userList = userDao.findSearch(loginId, name, birthDate1, birthDate2);
+
+
+
+
+		// リクエストスコープにユーザ一覧情報をセット
+		request.setAttribute("userList", userList);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
 }
